@@ -35,19 +35,19 @@ function github_api_get {
     response=$(curl -s -u "${USERNAME}:${TOKEN}" "$url")
 
     # Check if curl succeeded
-    if [[ $? -ne 0 ]]; then
-        echo "Error: curl command failed."
-        exit 1
-    fi
+#    if [[ $? -ne 0 ]]; then
+ #       echo "Error: curl command failed."
+  #      exit 1
+   # fi
 
     # Check if the response contains an error message (e.g., bad credentials)
-    if echo "$response" | jq -e 'has("message")' > /dev/null; then
-        echo "Error: $(echo "$response" | jq -r '.message')"
-        exit 1
-    fi
+    #if echo "$response" | jq -e 'has("message")' > /dev/null; then
+     #   echo "Error: $(echo "$response" | jq -r '.message')"
+      #  exit 1
+    #fi
 
     # Return the response
-    echo "$response"
+    #echo "$response"
 }
 
 # Function to list all users with access to the repository
